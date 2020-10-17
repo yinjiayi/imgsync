@@ -35,42 +35,11 @@ jobs:
       stage: Build imgsync
       script:
         - make install
-    - name: Sync Kubeadm
-      stage: Sync Kubeadm
+    - name: Sync gcr
+      stage: Sync gcr
       script:
-        - imgsync gcr --kubeadm --user ${DOCKER_USER} --password ${DOCKER_PASSWORD} --process-limit 30 --manifests ${GCR_REPO}/manifests 
-    - name: Sync Flannel
-      stage: Sync Flannel
-      script:
-        - imgsync flannel --user ${DOCKER_USER} --password ${DOCKER_PASSWORD} --process-limit 30 --manifests ${GCR_REPO}/manifests 
-    - name: Sync Helm
-      stage: Sync Helm
-      script:
-        - imgsync gcr --namespace kubernetes-helm --user ${DOCKER_USER} --password ${DOCKER_PASSWORD} --process-limit 30 --manifests ${GCR_REPO}/manifests 
-    - name: Sync Istio
-      stage: Sync Istio
-      script:
-        - imgsync gcr --namespace istio-release --user ${DOCKER_USER} --password ${DOCKER_PASSWORD} --process-limit 30 --manifests ${GCR_REPO}/manifests 
-    - name: Sync Distroless
-      stage: Sync Distroless
-      script:
-        - imgsync gcr --namespace distroless --user ${DOCKER_USER} --password ${DOCKER_PASSWORD} --process-limit 30 --manifests ${GCR_REPO}/manifests 
-    - name: Sync Samples
-      stage: Sync Samples
-      script:
-        - imgsync gcr --namespace google-samples --user ${DOCKER_USER} --password ${DOCKER_PASSWORD} --process-limit 30 --manifests ${GCR_REPO}/manifests 
-    - name: Sync Linkerd
-      stage: Sync Linkerd
-      script:
-        - imgsync gcr --namespace linkerd-io --user ${DOCKER_USER} --password ${DOCKER_PASSWORD} --process-limit 30 --manifests ${GCR_REPO}/manifests 
-    - name: Sync Spinnaker
-      stage: Sync Spinnaker
-      script:
-        - imgsync gcr --namespace spinnaker-marketplace --user ${DOCKER_USER} --password ${DOCKER_PASSWORD} --process-limit 30 --manifests ${GCR_REPO}/manifests 
-    - name: Sync KNative
-      stage: Sync KNative
-      script:
-        - imgsync gcr --namespace knative-releases --user ${DOCKER_USER} --password ${DOCKER_PASSWORD} --process-limit 30 --manifests ${GCR_REPO}/manifests 
+        - imgsync gcr --user ${DOCKER_USER} --password ${DOCKER_PASSWORD}
+
 
 after_success:
   - bash .travis-after-success.sh
