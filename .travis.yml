@@ -38,7 +38,7 @@ jobs:
     - name: Sync Kubeadm
       stage: Sync Kubeadm
       script:
-        - imgsync gcr --kubeadm --user ${DOCKER_USER} --password ${DOCKER_PASSWORD} --process-limit 30 --manifests ${GCR_REPO}/manifests --report --report-name kubeadm --telegram-group ${TG_GROUP} --telegram-token ${TG_TOKEN}
+        - imgsync gcr --kubeadm --user ${DOCKER_USER} --password ${DOCKER_PASSWORD} --process-limit 30 --manifests ${GCR_REPO}/manifests 
     - name: Sync Flannel
       stage: Sync Flannel
       script:
