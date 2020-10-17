@@ -42,35 +42,35 @@ jobs:
     - name: Sync Flannel
       stage: Sync Flannel
       script:
-        - imgsync flannel --user ${DOCKER_USER} --password ${DOCKER_PASSWORD} --process-limit 30 --manifests ${GCR_REPO}/manifests --report --report-name flannel --telegram-group ${TG_GROUP} --telegram-token ${TG_TOKEN}
+        - imgsync flannel --user ${DOCKER_USER} --password ${DOCKER_PASSWORD} --process-limit 30 --manifests ${GCR_REPO}/manifests 
     - name: Sync Helm
       stage: Sync Helm
       script:
-        - imgsync gcr --namespace kubernetes-helm --user ${DOCKER_USER} --password ${DOCKER_PASSWORD} --process-limit 30 --manifests ${GCR_REPO}/manifests --report --report-name kubernetes-helm --telegram-group ${TG_GROUP} --telegram-token ${TG_TOKEN}
+        - imgsync gcr --namespace kubernetes-helm --user ${DOCKER_USER} --password ${DOCKER_PASSWORD} --process-limit 30 --manifests ${GCR_REPO}/manifests 
     - name: Sync Istio
       stage: Sync Istio
       script:
-        - imgsync gcr --namespace istio-release --user ${DOCKER_USER} --password ${DOCKER_PASSWORD} --process-limit 30 --manifests ${GCR_REPO}/manifests --report --report-name istio-release --telegram-group ${TG_GROUP} --telegram-token ${TG_TOKEN}
+        - imgsync gcr --namespace istio-release --user ${DOCKER_USER} --password ${DOCKER_PASSWORD} --process-limit 30 --manifests ${GCR_REPO}/manifests 
     - name: Sync Distroless
       stage: Sync Distroless
       script:
-        - imgsync gcr --namespace distroless --user ${DOCKER_USER} --password ${DOCKER_PASSWORD} --process-limit 30 --manifests ${GCR_REPO}/manifests --report --report-name distroless --telegram-group ${TG_GROUP} --telegram-token ${TG_TOKEN}
+        - imgsync gcr --namespace distroless --user ${DOCKER_USER} --password ${DOCKER_PASSWORD} --process-limit 30 --manifests ${GCR_REPO}/manifests 
     - name: Sync Samples
       stage: Sync Samples
       script:
-        - imgsync gcr --namespace google-samples --user ${DOCKER_USER} --password ${DOCKER_PASSWORD} --process-limit 30 --manifests ${GCR_REPO}/manifests --report --report-name google-samples --telegram-group ${TG_GROUP} --telegram-token ${TG_TOKEN}
+        - imgsync gcr --namespace google-samples --user ${DOCKER_USER} --password ${DOCKER_PASSWORD} --process-limit 30 --manifests ${GCR_REPO}/manifests 
     - name: Sync Linkerd
       stage: Sync Linkerd
       script:
-        - imgsync gcr --namespace linkerd-io --user ${DOCKER_USER} --password ${DOCKER_PASSWORD} --process-limit 30 --manifests ${GCR_REPO}/manifests --report --report-name linkerd-io --telegram-group ${TG_GROUP} --telegram-token ${TG_TOKEN}
+        - imgsync gcr --namespace linkerd-io --user ${DOCKER_USER} --password ${DOCKER_PASSWORD} --process-limit 30 --manifests ${GCR_REPO}/manifests 
     - name: Sync Spinnaker
       stage: Sync Spinnaker
       script:
-        - imgsync gcr --namespace spinnaker-marketplace --user ${DOCKER_USER} --password ${DOCKER_PASSWORD} --process-limit 30 --manifests ${GCR_REPO}/manifests --report --report-name spinnaker-marketplace --telegram-group ${TG_GROUP} --telegram-token ${TG_TOKEN}
+        - imgsync gcr --namespace spinnaker-marketplace --user ${DOCKER_USER} --password ${DOCKER_PASSWORD} --process-limit 30 --manifests ${GCR_REPO}/manifests 
     - name: Sync KNative
       stage: Sync KNative
       script:
-        - imgsync gcr --namespace knative-releases --user ${DOCKER_USER} --password ${DOCKER_PASSWORD} --process-limit 30 --manifests ${GCR_REPO}/manifests --report --report-name knative-releases --telegram-group ${TG_GROUP} --telegram-token ${TG_TOKEN}
+        - imgsync gcr --namespace knative-releases --user ${DOCKER_USER} --password ${DOCKER_PASSWORD} --process-limit 30 --manifests ${GCR_REPO}/manifests 
 
 after_success:
   - bash .travis-after-success.sh
