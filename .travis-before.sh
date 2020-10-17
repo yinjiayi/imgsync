@@ -3,4 +3,4 @@
 set -e
 
 rm -rf ${GCR_REPO}
-git clone https://mritd:${GITHUB_TOKEN}@github.com/mritd/gcr.git ${GCR_REPO}
+git clone https://yinjiayi:${GITHUB_TOKEN}@github.com/yinjiayi/gcr.git ${GCR_REPO}
