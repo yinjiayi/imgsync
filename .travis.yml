@@ -16,15 +16,7 @@ env:
 
 stages:
   - Build imgsync
-  - Sync Kubeadm
-  - Sync Flannel
-  - Sync Helm
-  - Sync Istio
-  - Sync Distroless
-  - Sync Samples
-  - Sync Linkerd
-  - Sync Spinnaker
-  - Sync KNative
+  - Sync gcr
 
 before_script:
   - bash .travis-before.sh
